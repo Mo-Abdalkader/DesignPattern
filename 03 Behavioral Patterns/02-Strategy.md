@@ -16,8 +16,7 @@ The Strategy Pattern suggests the following approach:
 - Instead of embedding behavior directly into a class (using inheritance), use composition to include behavior objects as components of the class. This allows behaviors to be selected or changed at runtime.
 
 ## Examples 
-### 1- Duck Lack Example
-#### Problem
+### 1- Duck Lack Problem
 Imagine you are building a duck simulator. You need to create different types of ducks, such as Mallard Ducks and Rubber Ducks, each with its own unique behaviors. Initially, you might think of using inheritance to model these ducks:
 
 ```java
@@ -48,7 +47,7 @@ public class RubberDuck extends Duck {
 }
 ```
 
-Problems with Inheritance-Based Design
+#### Problems with Inheritance-Based Design
 
 **Code Duplication:**
 - As new duck types are added, you might need to override behaviors in many subclasses, leading to duplicate code if multiple subclasses share the same behavior modification.
@@ -66,10 +65,10 @@ Problems with Inheritance-Based Design
 **Violation of the Single Responsibility Principle:**
 - The Duck class handles both the behaviors (quacking and flying) and the characteristics of ducks, making it responsible for too many things.
 
-#### Solution: Applying the Strategy Pattern
+### Solution: Applying the Strategy Pattern
 The Strategy Pattern helps solve these issues by promoting composition over inheritance. It allows you to define a family of algorithms or behaviors, encapsulate each one, and make them interchangeable. This way, you can change the behavior of a duck at runtime without modifying the duck classes.
 
-##### 1- Define Behavior Interfaces:
+#### 1- Define Behavior Interfaces:
 ```java
 // QuackBehavior interface
 public interface QuackBehavior {
@@ -82,7 +81,7 @@ public interface FlyBehavior {
 }
 ```
 
-##### 2- Implement Concrete Behaviors:
+#### 2- Implement Concrete Behaviors:
 ```java
 // Concrete implementation of QuackBehavior interface
 public class Quack implements QuackBehavior {
@@ -117,7 +116,7 @@ public class FlyNoWay implements FlyBehavior {
 }
 ```
 
-##### 3- Use Composition in Duck Class:
+#### 3- Use Composition in Duck Class:
 ```java
 // Duck class with Strategy Pattern
 public abstract class Duck {
@@ -150,7 +149,7 @@ public abstract class Duck {
 }
 ```
 
-##### Create Specific Duck Types:
+#### 4- Create Specific Duck Types:
 ```java
 // MallardDuck extends Duck
 public class MallardDuck extends Duck {
@@ -181,7 +180,7 @@ public class RubberDuck extends Duck {
 }
 ```
 
-##### Main Program to Test Ducks:
+#### 5- Main Program to Test Ducks:
 ```java
 public class MiniDuckSimulator {
     public static void main(String[] args) {
@@ -204,7 +203,7 @@ public class MiniDuckSimulator {
 }
 ```
 
-#### Explanation
+### Explanation
 **Design Pattern:** 
 - Strategy Pattern allows ducks to have different behaviors (quacking and flying) that can be interchanged dynamically.
 **Problem:**
